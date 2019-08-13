@@ -9,6 +9,12 @@
 import UIKit
 import AVFoundation
 
+// MARK: - UITrimVideoViewDelegate
+protocol UITrimVideoViewDelegate: class {
+    func didChangeValue(videoRangeSlider: UITrimVideoView, startTime: Double)
+    func didChangeValue(videoRangeSlider: UITrimVideoView, endTime: Double)
+}
+
 class TrimVideoViewController: UIViewController {
 
     static let identifier = String(describing: TrimVideoViewController.self)
