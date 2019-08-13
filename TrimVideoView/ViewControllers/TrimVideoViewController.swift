@@ -32,6 +32,7 @@ class TrimVideoViewController: UIViewController {
             coverImageView.image = trimVideoViewImageGenerator?.generateFrame(for: 0)
             startLabel.text = Double(0).formatedAsTime
             endLabel.text = asset.duration.seconds.formatedAsTime
+            trimVideoView.set(asset: asset)
         } else {
             dismiss(animated: true)
         }

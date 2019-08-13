@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 @IBDesignable class UITrimVideoView: UIView {
+
+    private var asset: AVAsset?
+
+    private var startTime: Double = 0
+    private var endTime: Double = 0
 
     @IBInspectable private var blurEdges: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0)
     @IBInspectable private var blurMiddle: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0)
@@ -18,7 +24,7 @@ import UIKit
     private var borderWidth: CGFloat = 2
 
     private var contentView = UIView()
-    private var framesView = UIView()
+    internal var framesView = UIView()
 
     private var thumbWidth: CGFloat = 10
 
@@ -50,6 +56,11 @@ import UIKit
     // MARK: - Setup
     internal func setup() {
         setContentView()
+        if let asset = asset {
+            contentView.layoutIfNeeded()
+            framesView.layoutIfNeeded()
+            setFrames(for: asset)
+        }
     }
 
     // MARK: - Content View
@@ -205,6 +216,13 @@ import UIKit
             blur.bottomAnchor.constraint(equalTo: framesView.bottomAnchor),
             blur.leftAnchor.constraint(equalTo: thumbLeft.rightAnchor)
             ])
+    }
+
+    public func set(asset: AVAsset?) {
+        self.asset = asset
+        startTime = 0
+        endTime = asset?.duration.seconds ?? 0
+        setup()
     }
 
 }
