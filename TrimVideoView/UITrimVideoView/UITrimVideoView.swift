@@ -8,7 +8,9 @@
 
 import UIKit
 
-class UITrimVideoView: UIView {
+@IBDesignable class UITrimVideoView: UIView {
+
+    @IBInspectable var color: UIColor? = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
 
     private var borderWidth: CGFloat = 2
 
@@ -16,6 +18,9 @@ class UITrimVideoView: UIView {
     private var framesView = UIView()
 
     private var thumbWidth: CGFloat = 10
+
+    private var thumbLeft = UIView()
+    private var thumbLeftConstraint: NSLayoutConstraint?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,6 +61,7 @@ class UITrimVideoView: UIView {
             ])
 
         setFramesView()
+        setThumbLeft()
     }
 
     // MARK: - Frames View
@@ -73,6 +79,23 @@ class UITrimVideoView: UIView {
             ])
 
         framesView.layoutIfNeeded()
+    }
+
+    // MARK: Thumb
+    private func setThumbLeft() {
+        thumbLeft.backgroundColor = color
+
+        contentView.addSubview(thumbLeft)
+        thumbLeft.translatesAutoresizingMaskIntoConstraints = false
+
+        let thumbLeftConstraint = thumbLeft.leadingAnchor.constraint(equalTo: leadingAnchor)
+        self.thumbLeftConstraint = thumbLeftConstraint
+        NSLayoutConstraint.activate([
+            thumbLeft.topAnchor.constraint(equalTo: contentView.topAnchor),
+            thumbLeft.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            thumbLeft.widthAnchor.constraint(equalToConstant: thumbWidth),
+            thumbLeftConstraint
+            ])
     }
 
 }
