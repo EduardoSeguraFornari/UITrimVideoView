@@ -22,6 +22,8 @@ class TrimVideoViewController: UIViewController {
     @IBOutlet private weak var startLabel: UILabel!
     @IBOutlet private weak var endLabel: UILabel!
 
+    @IBOutlet weak var trimVideoView: UITrimVideoView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
