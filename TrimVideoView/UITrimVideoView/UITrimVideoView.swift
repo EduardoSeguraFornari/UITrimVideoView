@@ -22,6 +22,9 @@ import UIKit
     private var thumbLeft = UIView()
     private var thumbLeftConstraint: NSLayoutConstraint?
 
+    private var thumbRight = UIView()
+    private var thumbRightConstraint: NSLayoutConstraint?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -62,6 +65,7 @@ import UIKit
 
         setFramesView()
         setThumbLeft()
+        setThumbRight()
     }
 
     // MARK: - Frames View
@@ -95,6 +99,22 @@ import UIKit
             thumbLeft.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             thumbLeft.widthAnchor.constraint(equalToConstant: thumbWidth),
             thumbLeftConstraint
+            ])
+    }
+
+    private func setThumbRight() {
+        thumbRight.backgroundColor = color
+
+        contentView.addSubview(thumbRight)
+        thumbRight.translatesAutoresizingMaskIntoConstraints = false
+
+        let thumbRightConstraint = thumbRight.rightAnchor.constraint(equalTo: rightAnchor)
+        self.thumbRightConstraint = thumbRightConstraint
+        NSLayoutConstraint.activate([
+            thumbRight.topAnchor.constraint(equalTo: contentView.topAnchor),
+            thumbRight.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            thumbRight.widthAnchor.constraint(equalToConstant: thumbWidth),
+            thumbRightConstraint
             ])
     }
 
