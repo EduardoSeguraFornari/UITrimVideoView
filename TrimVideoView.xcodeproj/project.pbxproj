@@ -14,6 +14,7 @@
 		919CCF6F230231D800913107 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919CCF6D230231D800913107 /* LaunchScreen.storyboard */; };
 		919CCF7C2302341700913107 /* VideoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CCF7A2302341700913107 /* VideoHelper.swift */; };
 		919CCF7D2302341700913107 /* Double+formatedAsTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CCF7B2302341700913107 /* Double+formatedAsTime.swift */; };
+		919CCF802302352A00913107 /* TrimVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CCF7F2302352A00913107 /* TrimVideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		919CCF70230231D800913107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		919CCF7A2302341700913107 /* VideoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoHelper.swift; sourceTree = "<group>"; };
 		919CCF7B2302341700913107 /* Double+formatedAsTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+formatedAsTime.swift"; sourceTree = "<group>"; };
+		919CCF7F2302352A00913107 /* TrimVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimVideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				919CCF66230231D600913107 /* ViewController.swift */,
+				919CCF7F2302352A00913107 /* TrimVideoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				919CCF7C2302341700913107 /* VideoHelper.swift in Sources */,
 				919CCF7D2302341700913107 /* Double+formatedAsTime.swift in Sources */,
 				919CCF67230231D600913107 /* ViewController.swift in Sources */,
+				919CCF802302352A00913107 /* TrimVideoViewController.swift in Sources */,
 				919CCF65230231D600913107 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,24 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BsW-kX-6Bm">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Select Video-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TrimVideoView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AfY-zO-dny">
+                                <rect key="frame" x="163.5" y="433" width="87" height="30"/>
+                                <state key="normal" title="Select Video"/>
+                                <connections>
+                                    <action selector="selectVideoButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SrP-6o-Fbm"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AfY-zO-dny" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aES-Yn-8eB"/>
+                            <constraint firstItem="AfY-zO-dny" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mSb-00-IDo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Select Video" id="5Ns-vs-Zf1"/>
+                    <connections>
+                        <segue destination="QLm-By-6oR" kind="show" identifier="TrimVideoViewController" id="jHC-aq-2jl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="109.82142857142857"/>
+        </scene>
+        <!--Trim Video-->
+        <scene sceneID="jGr-8Z-NJB">
+            <objects>
+                <viewController id="QLm-By-6oR" customClass="TrimVideoViewController" customModule="TrimVideoView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xqu-iw-ff1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vcv-yE-Paa">
+                                <rect key="frame" x="50" y="138" width="314" height="553"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xw-YW-1TW">
+                                <rect key="frame" x="50" y="741" width="152" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:0000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGS-dY-Bap">
+                                <rect key="frame" x="212" y="741" width="152" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkg-E2-rU9">
+                                <rect key="frame" x="50" y="772" width="314" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="UTb-f4-qMo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5xw-YW-1TW" firstAttribute="top" secondItem="Vcv-yE-Paa" secondAttribute="bottom" constant="50" id="0ye-lE-65O"/>
+                            <constraint firstItem="rC1-sR-LIt" firstAttribute="trailing" secondItem="vkg-E2-rU9" secondAttribute="trailing" constant="50" id="K9y-nH-dEk"/>
+                            <constraint firstItem="vkg-E2-rU9" firstAttribute="leading" secondItem="rC1-sR-LIt" secondAttribute="leading" constant="50" id="MFO-JS-qZj"/>
+                            <constraint firstItem="yGS-dY-Bap" firstAttribute="trailing" secondItem="Vcv-yE-Paa" secondAttribute="trailing" id="YOO-Od-32E"/>
+                            <constraint firstItem="5xw-YW-1TW" firstAttribute="centerY" secondItem="yGS-dY-Bap" secondAttribute="centerY" id="co9-hH-BxS"/>
+                            <constraint firstItem="yGS-dY-Bap" firstAttribute="leading" secondItem="5xw-YW-1TW" secondAttribute="trailing" constant="10" id="f6r-b8-YWZ"/>
+                            <constraint firstItem="5xw-YW-1TW" firstAttribute="leading" secondItem="Vcv-yE-Paa" secondAttribute="leading" id="gtH-F9-1Zu"/>
+                            <constraint firstItem="yGS-dY-Bap" firstAttribute="width" secondItem="5xw-YW-1TW" secondAttribute="width" id="hAF-LI-Gxo"/>
+                            <constraint firstItem="rC1-sR-LIt" firstAttribute="bottom" secondItem="vkg-E2-rU9" secondAttribute="bottom" constant="50" id="io0-j4-Gha"/>
+                            <constraint firstItem="yGS-dY-Bap" firstAttribute="trailing" secondItem="vkg-E2-rU9" secondAttribute="trailing" id="kZp-1G-Tvi"/>
+                            <constraint firstItem="vkg-E2-rU9" firstAttribute="top" secondItem="5xw-YW-1TW" secondAttribute="bottom" constant="10" id="sLn-pQ-66R"/>
+                            <constraint firstItem="Vcv-yE-Paa" firstAttribute="top" secondItem="rC1-sR-LIt" secondAttribute="top" constant="50" id="x2D-4V-4n7"/>
+                            <constraint firstItem="vkg-E2-rU9" firstAttribute="leading" secondItem="5xw-YW-1TW" secondAttribute="leading" id="zVx-W3-dzH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rC1-sR-LIt"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Trim Video" id="vTv-h2-B13"/>
+                    <connections>
+                        <outlet property="coverImageView" destination="Vcv-yE-Paa" id="7Z1-Sr-Hnx"/>
+                        <outlet property="endLabel" destination="yGS-dY-Bap" id="CjU-pl-ukk"/>
+                        <outlet property="startLabel" destination="5xw-YW-1TW" id="TSB-Y5-MAM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5qR-nx-GSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1971" y="110"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rwi-Ei-vmn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BsW-kX-6Bm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MNC-f3-Kz4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JYC-Ze-kIO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNs-k4-7OX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="206" y="110"/>
         </scene>
     </scenes>
 </document>
