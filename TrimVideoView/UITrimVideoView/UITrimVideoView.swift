@@ -15,6 +15,8 @@ import AVFoundation
 
     private var asset: AVAsset?
 
+    internal var isPortrait: Bool?
+
     internal var startTime: Double = 0
     internal var endTime: Double = 0
 
@@ -39,6 +41,8 @@ import AVFoundation
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
+        setupIsPortraitFlag()
+        registerAutoLayoutNotifications()
     }
 
     override func prepareForInterfaceBuilder() {
@@ -49,6 +53,8 @@ import AVFoundation
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+        setupIsPortraitFlag()
+        registerAutoLayoutNotifications()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -63,6 +69,8 @@ import AVFoundation
             contentView.layoutIfNeeded()
             framesView.layoutIfNeeded()
             setFrames(for: asset)
+            set(startTime: startTime)
+            set(endTime: endTime)
         }
         addGestureRecognizers()
     }
@@ -261,6 +269,29 @@ import AVFoundation
         guard let asset = asset else { return 0 }
         guard let thumbRightConstraint = thumbRightConstraint?.constant else { return 0 }
         return asset.duration.seconds - calculateTimePerPoint() * Double(abs(thumbRightConstraint))
+    }
+
+    public func set(startTime: Double) {
+        DispatchQueue.main.async {
+            if startTime >= 0 && startTime < self.endTime {
+                self.startTime = startTime
+                let value = CGFloat(startTime / self.calculateTimePerPoint())
+                self.thumbLeftConstraint?.constant = value
+            }
+        }
+    }
+
+    public func set(endTime: Double) {
+        DispatchQueue.main.async {
+            guard let asset = self.asset else { return }
+            if endTime <= asset.duration.seconds && endTime > self.startTime {
+                self.endTime = endTime
+                let difference = asset.duration.seconds - endTime
+                let timePerPoint = self.calculateTimePerPoint()
+                let value = CGFloat(difference / timePerPoint)
+                self.thumbRightConstraint?.constant = -value
+            }
+        }
     }
 
 }
