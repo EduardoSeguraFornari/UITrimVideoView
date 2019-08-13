@@ -10,6 +10,9 @@ import UIKit
 
 @IBDesignable class UITrimVideoView: UIView {
 
+    @IBInspectable private var blurEdges: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0)
+    @IBInspectable private var blurMiddle: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0)
+
     @IBInspectable var color: UIColor? = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
 
     private var borderWidth: CGFloat = 2
@@ -68,6 +71,9 @@ import UIKit
         setThumbRight()
         setBorderTop()
         setBorderBottom()
+        setBlurLeft()
+        setBlurRight()
+        setBlurMiddle()
     }
 
     // MARK: - Frames View
@@ -148,6 +154,56 @@ import UIKit
             border.rightAnchor.constraint(equalTo: thumbRight.leftAnchor),
             border.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             border.leftAnchor.constraint(equalTo: thumbLeft.rightAnchor)
+            ])
+    }
+
+    // MARK: - Blurs
+    private func setBlurLeft() {
+        let blur = UIView()
+        blur.backgroundColor = blurEdges
+
+        contentView.addSubview(blur)
+        blur.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            blur.topAnchor.constraint(equalTo: framesView.topAnchor),
+            blur.rightAnchor.constraint(equalTo: thumbLeft.rightAnchor),
+            blur.bottomAnchor.constraint(equalTo: framesView.bottomAnchor),
+            blur.leftAnchor.constraint(equalTo: framesView.leftAnchor)
+            ])
+
+        contentView.bringSubviewToFront(thumbLeft)
+    }
+
+    private func setBlurRight() {
+        let blur = UIView()
+        blur.backgroundColor = blurEdges
+
+        contentView.addSubview(blur)
+        blur.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            blur.topAnchor.constraint(equalTo: framesView.topAnchor),
+            blur.rightAnchor.constraint(equalTo: framesView.rightAnchor),
+            blur.bottomAnchor.constraint(equalTo: framesView.bottomAnchor),
+            blur.leftAnchor.constraint(equalTo: thumbRight.leftAnchor)
+            ])
+
+        contentView.bringSubviewToFront(thumbRight)
+    }
+
+    private func setBlurMiddle() {
+        let blur = UIView()
+        blur.backgroundColor = blurMiddle
+
+        contentView.addSubview(blur)
+        blur.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            blur.topAnchor.constraint(equalTo: framesView.topAnchor),
+            blur.rightAnchor.constraint(equalTo: thumbRight.leftAnchor),
+            blur.bottomAnchor.constraint(equalTo: framesView.bottomAnchor),
+            blur.leftAnchor.constraint(equalTo: thumbLeft.rightAnchor)
             ])
     }
 
