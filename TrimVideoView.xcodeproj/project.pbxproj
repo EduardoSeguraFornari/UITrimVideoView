@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		912EF65B2303747B004449EC /* UITrimVideoViewImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912EF65A2303747B004449EC /* UITrimVideoViewImageGenerator.swift */; };
 		919CCF65230231D600913107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CCF64230231D600913107 /* AppDelegate.swift */; };
 		919CCF67230231D600913107 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CCF66230231D600913107 /* ViewController.swift */; };
 		919CCF6A230231D600913107 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919CCF68230231D600913107 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		912EF65A2303747B004449EC /* UITrimVideoViewImageGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITrimVideoViewImageGenerator.swift; sourceTree = "<group>"; };
 		919CCF61230231D600913107 /* TrimVideoView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrimVideoView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		919CCF64230231D600913107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		919CCF66230231D600913107 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		912EF65C23037482004449EC /* UITrimVideoView */ = {
+			isa = PBXGroup;
+			children = (
+				912EF65A2303747B004449EC /* UITrimVideoViewImageGenerator.swift */,
+			);
+			path = UITrimVideoView;
+			sourceTree = "<group>";
+		};
 		919CCF58230231D600913107 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 				919CCF6B230231D800913107 /* Assets.xcassets */,
 				919CCF70230231D800913107 /* Info.plist */,
 				919CCF76230231EB00913107 /* Storyboards */,
+				912EF65C23037482004449EC /* UITrimVideoView */,
 				919CCF7E2302341C00913107 /* Utils */,
 				919CCF77230231F500913107 /* ViewControllers */,
 			);
@@ -189,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				912EF65B2303747B004449EC /* UITrimVideoViewImageGenerator.swift in Sources */,
 				919CCF7C2302341700913107 /* VideoHelper.swift in Sources */,
 				919CCF7D2302341700913107 /* Double+formatedAsTime.swift in Sources */,
 				919CCF67230231D600913107 /* ViewController.swift in Sources */,

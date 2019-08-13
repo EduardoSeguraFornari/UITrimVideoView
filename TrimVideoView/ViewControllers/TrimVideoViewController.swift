@@ -15,6 +15,8 @@ class TrimVideoViewController: UIViewController {
 
     var asset: AVAsset?
 
+    private var trimVideoViewImageGenerator: UITrimVideoViewImageGenerator?
+
     @IBOutlet private weak var coverImageView: UIImageView!
 
     @IBOutlet private weak var startLabel: UILabel!
@@ -24,6 +26,8 @@ class TrimVideoViewController: UIViewController {
         super.viewDidLoad()
 
         if let asset = asset {
+            trimVideoViewImageGenerator = UITrimVideoViewImageGenerator(asset: asset)
+            coverImageView.image = trimVideoViewImageGenerator?.generateFrame(for: 0)
             startLabel.text = Double(0).formatedAsTime
             endLabel.text = asset.duration.seconds.formatedAsTime
         } else {
