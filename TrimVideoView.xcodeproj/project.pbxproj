@@ -10,6 +10,7 @@
 		912EF65B2303747B004449EC /* UITrimVideoViewImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912EF65A2303747B004449EC /* UITrimVideoViewImageGenerator.swift */; };
 		912EF65E23037549004449EC /* UITrimVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912EF65D23037549004449EC /* UITrimVideoView.swift */; };
 		912EF660230379F3004449EC /* UITrimVideoView+Frames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912EF65F230379F3004449EC /* UITrimVideoView+Frames.swift */; };
+		912EF66323037B7E004449EC /* UITrimVideoView+GestureRecognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912EF66223037B7E004449EC /* UITrimVideoView+GestureRecognizers.swift */; };
 		919CCF65230231D600913107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CCF64230231D600913107 /* AppDelegate.swift */; };
 		919CCF67230231D600913107 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CCF66230231D600913107 /* ViewController.swift */; };
 		919CCF6A230231D600913107 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919CCF68230231D600913107 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		912EF65A2303747B004449EC /* UITrimVideoViewImageGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITrimVideoViewImageGenerator.swift; sourceTree = "<group>"; };
 		912EF65D23037549004449EC /* UITrimVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITrimVideoView.swift; sourceTree = "<group>"; };
 		912EF65F230379F3004449EC /* UITrimVideoView+Frames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITrimVideoView+Frames.swift"; sourceTree = "<group>"; };
+		912EF66223037B7E004449EC /* UITrimVideoView+GestureRecognizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITrimVideoView+GestureRecognizers.swift"; sourceTree = "<group>"; };
 		919CCF61230231D600913107 /* TrimVideoView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrimVideoView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		919CCF64230231D600913107 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		919CCF66230231D600913107 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				912EF65F230379F3004449EC /* UITrimVideoView+Frames.swift */,
+				912EF66223037B7E004449EC /* UITrimVideoView+GestureRecognizers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				919CCF7C2302341700913107 /* VideoHelper.swift in Sources */,
 				919CCF7D2302341700913107 /* Double+formatedAsTime.swift in Sources */,
 				919CCF67230231D600913107 /* ViewController.swift in Sources */,
+				912EF66323037B7E004449EC /* UITrimVideoView+GestureRecognizers.swift in Sources */,
 				912EF660230379F3004449EC /* UITrimVideoView+Frames.swift in Sources */,
 				912EF65E23037549004449EC /* UITrimVideoView.swift in Sources */,
 				919CCF802302352A00913107 /* TrimVideoViewController.swift in Sources */,

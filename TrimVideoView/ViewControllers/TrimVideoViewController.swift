@@ -38,6 +38,7 @@ class TrimVideoViewController: UIViewController {
             coverImageView.image = trimVideoViewImageGenerator?.generateFrame(for: 0)
             startLabel.text = Double(0).formatedAsTime
             endLabel.text = asset.duration.seconds.formatedAsTime
+            trimVideoView.delegate = self
             trimVideoView.set(asset: asset)
         } else {
             dismiss(animated: true)
@@ -45,4 +46,17 @@ class TrimVideoViewController: UIViewController {
 
     }
 
+}
+
+// MARK: - UITrimVideoViewDelegate
+extension TrimVideoViewController: UITrimVideoViewDelegate {
+    func didChangeValue(videoRangeSlider: UITrimVideoView, startTime: Double) {
+        startLabel.text = startTime.formatedAsTime
+        coverImageView.image = trimVideoViewImageGenerator?.generateFrame(for: startTime)
+    }
+
+    func didChangeValue(videoRangeSlider: UITrimVideoView, endTime: Double) {
+        endLabel.text = endTime.formatedAsTime
+        coverImageView.image = trimVideoViewImageGenerator?.generateFrame(for: endTime)
+    }
 }

@@ -11,10 +11,12 @@ import AVFoundation
 
 @IBDesignable class UITrimVideoView: UIView {
 
+    public weak var delegate: UITrimVideoViewDelegate?
+
     private var asset: AVAsset?
 
-    private var startTime: Double = 0
-    private var endTime: Double = 0
+    internal var startTime: Double = 0
+    internal var endTime: Double = 0
 
     @IBInspectable private var blurEdges: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0)
     @IBInspectable private var blurMiddle: UIColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 0)
@@ -23,16 +25,16 @@ import AVFoundation
 
     private var borderWidth: CGFloat = 2
 
-    private var contentView = UIView()
+    internal var contentView = UIView()
     internal var framesView = UIView()
 
-    private var thumbWidth: CGFloat = 10
+    internal var thumbWidth: CGFloat = 10
 
-    private var thumbLeft = UIView()
-    private var thumbLeftConstraint: NSLayoutConstraint?
+    internal var thumbLeft = UIView()
+    internal var thumbLeftConstraint: NSLayoutConstraint?
 
-    private var thumbRight = UIView()
-    private var thumbRightConstraint: NSLayoutConstraint?
+    internal var thumbRight = UIView()
+    internal var thumbRightConstraint: NSLayoutConstraint?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,12 +57,28 @@ import AVFoundation
 
     // MARK: - Setup
     internal func setup() {
+        clear()
         setContentView()
         if let asset = asset {
             contentView.layoutIfNeeded()
             framesView.layoutIfNeeded()
             setFrames(for: asset)
         }
+        addGestureRecognizers()
+    }
+
+    // MARK: - Clear
+    private func clear() {
+        contentView.removeFromSuperview()
+        contentView = UIView()
+
+        framesView = UIView()
+
+        thumbLeft = UIView()
+        thumbLeftConstraint = nil
+
+        thumbRight = UIView()
+        thumbRightConstraint = nil
     }
 
     // MARK: - Content View
@@ -223,6 +241,26 @@ import AVFoundation
         startTime = 0
         endTime = asset?.duration.seconds ?? 0
         setup()
+    }
+
+    // MARK: - Trim
+    private func calculateTimePerPoint() -> Double {
+        if let asset = asset {
+            let duration = asset.duration.seconds
+            return duration / Double(framesView.frame.width)
+        }
+        return 0
+    }
+
+    internal func calculateStartTime() -> Double {
+        guard let thumbLeftConstraint = thumbLeftConstraint?.constant else { return 0 }
+        return calculateTimePerPoint() * Double(thumbLeftConstraint)
+    }
+
+    internal func calculateEndTime() -> Double {
+        guard let asset = asset else { return 0 }
+        guard let thumbRightConstraint = thumbRightConstraint?.constant else { return 0 }
+        return asset.duration.seconds - calculateTimePerPoint() * Double(abs(thumbRightConstraint))
     }
 
 }
