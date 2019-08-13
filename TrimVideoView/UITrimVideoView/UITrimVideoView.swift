@@ -10,9 +10,47 @@ import UIKit
 
 class UITrimVideoView: UIView {
 
+    internal var contentView = UIView()
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        setup()
+    }
+
+    override func prepareForInterfaceBuilder() {
+        setup()
+    }
+
+    // MARK: - Init
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    // MARK: - Setup
+    internal func setup() {
+        setContentView()
+    }
+
+    // MARK: - Content View
+    private func setContentView() {
+        contentView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+
+        addSubview(contentView)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 40)
+            ])
+
+        contentView.layoutIfNeeded()
     }
 
 }
