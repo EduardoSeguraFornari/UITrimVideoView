@@ -10,7 +10,12 @@ import UIKit
 
 class UITrimVideoView: UIView {
 
-    internal var contentView = UIView()
+    private var borderWidth: CGFloat = 2
+
+    private var contentView = UIView()
+    private var framesView = UIView()
+
+    private var thumbWidth: CGFloat = 10
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,7 +55,24 @@ class UITrimVideoView: UIView {
             contentView.heightAnchor.constraint(equalToConstant: 40)
             ])
 
-        contentView.layoutIfNeeded()
+        setFramesView()
+    }
+
+    // MARK: - Frames View
+    private func setFramesView() {
+        framesView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+
+        contentView.addSubview(framesView)
+        framesView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            framesView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -thumbWidth),
+            framesView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: thumbWidth),
+            framesView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: borderWidth),
+            framesView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -borderWidth)
+            ])
+
+        framesView.layoutIfNeeded()
     }
 
 }
