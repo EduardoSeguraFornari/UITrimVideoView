@@ -66,6 +66,7 @@ import UIKit
         setFramesView()
         setThumbLeft()
         setThumbRight()
+        setBorderTop()
     }
 
     // MARK: - Frames View
@@ -115,6 +116,22 @@ import UIKit
             thumbRight.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             thumbRight.widthAnchor.constraint(equalToConstant: thumbWidth),
             thumbRightConstraint
+            ])
+    }
+
+    // MARK: - Borders
+    private func setBorderTop() {
+        let border = UIView()
+        border.backgroundColor = color
+
+        contentView.addSubview(border)
+        border.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            border.heightAnchor.constraint(equalToConstant: borderWidth),
+            border.topAnchor.constraint(equalTo: contentView.topAnchor),
+            border.rightAnchor.constraint(equalTo: thumbRight.leftAnchor),
+            border.leftAnchor.constraint(equalTo: thumbLeft.rightAnchor)
             ])
     }
 
